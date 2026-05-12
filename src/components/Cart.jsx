@@ -1,14 +1,22 @@
-import React from 'react'
+export default function Cart({ cart }) {
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
 
-const Cart = () => {
   return (
     <div>
       <h2>Shopping Cart</h2>
-      <ul>
-        {/* TODO: Include items here in li tags with text 'ITEM.NAME is in your cart.' */}
-      </ul>
-    </div>
-  )
-}
 
-export default Cart
+      {cart.length === 0 ? (
+        <p>Your cart is empty</p>
+      ) : (
+        cart.map((item, index) => (
+          <div key={index}>
+            <span>{item.name} is in your cart</span>
+            <span>${item.price}</span>
+          </div>
+        ))
+      )}
+
+      <div>Total: ${total}</div>
+    </div>
+  );
+}

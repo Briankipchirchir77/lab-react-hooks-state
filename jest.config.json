@@ -1,7 +1,8 @@
 {
-    "testEnvironment": "jest-environment-jsdom",
-    "testPathIgnorePatterns": ["<rootDir>/node_modules/"],
-    "moduleNameMapper": {
-        "\\.(css|less)$": "identity-obj-proxy"
-    }
+  "testEnvironment": "jsdom",
+  "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+  "testPathIgnorePatterns": ["<rootDir>/node_modules/"],
+  "moduleNameMapper": {
+    "\\.(css|less)$": "identity-obj-proxy"
+  }
 }
